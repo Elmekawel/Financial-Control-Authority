@@ -19,3 +19,5 @@ Before you begin, ensure you have met the following requirements:
 - .NET Core SDK
 - Visual Studio
 - SQL Server
+
+## Getting Started
