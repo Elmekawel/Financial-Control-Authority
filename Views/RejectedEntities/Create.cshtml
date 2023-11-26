@@ -1,0 +1,126 @@
+﻿@model MICLifePortal.Models.RejectedEntity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Rejected Entity</h2>
+
+<div class="container">
+    <form asp-action="Create" class="form">
+        <div class="form-group">
+            <label asp-for="RefuseTID" class="col-form-label">Refuse Type</label>
+            <select asp-for="RefuseTID" asp-items="ViewBag.RefuseTIDList" class="form-control">
+                <option value="">Select Refuse</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RejectedEntityType" class="col-form-label">Rejected Entity Type</label>
+            <select asp-for="RejectedEntityType" asp-items="ViewBag.RejectedEntityTypeList" class="form-control">
+                <option value="">Select Reject Entity Type</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ContractorID" class="col-form-label">Contractor</label>
+            <select asp-for="ContractorID" asp-items="ViewBag.ContractorList" class="form-control">
+                <option value="">Select Contactor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CustomerID" class="col-form-label">Customer</label>
+            <select asp-for="CustomerID" asp-items="ViewBag.CustomerList" class="form-control">
+                <option value="">Select Customer</option>
+            </select>
+            <span asp-validation-for="CustomerID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BeneficiaryType" class="col-form-label">Beneficiary Type</label>
+            <select asp-for="BeneficiaryType" asp-items="ViewBag.BeneficiaryTypeList" class="form-control">
+                <option value="">Select Beneficiary Type</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CustomerCountry" class="col-form-label">Customer Country</label>
+            <input asp-for="CustomerCountry" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DocumentNo" class="col-form-label">Document Number</label>
+            <input asp-for="DocumentNo" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProductCode" class="col-form-label">Product Code</label>
+            <input asp-for="ProductCode" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BeneficiaryTID" class="col-form-label">Beneficiary</label>
+            <select asp-for="BeneficiaryTID" asp-items="ViewBag.BeneficiaryTIDList" class="form-control">
+                <option value="">Select Beneficiary</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RepaymentNo" class="col-form-label">Repayment Number</label>
+            <input asp-for="RepaymentNo" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PremiumValue" class="col-form-label">Premium Value</label>
+            <input asp-for="PremiumValue" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RefuseDate" class="col-form-label">Refuse Date</label>
+            <input asp-for="RefuseDate" class="form-control" />
+        </div>
+
+        @* <div class="form-group">
+            <label asp-for="ReasonId" class="col-form-label">Reason</label>
+            <select asp-for="ReasonId" asp-items="ViewBag.ReasonList" class="form-control">
+                <option value="">Select Reason</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OtherReasons" class="col-form-label">Other Reasons</label>
+            <input asp-for="OtherReasons" class="form-control" />
+        </div> *@
+        <div class="form-group">
+            <label asp-for="ReasonId" class="col-form-label">Reason</label>
+            <select asp-for="ReasonId" asp-items="ViewBag.ReasonList" class="form-control" id="reasonDropdown">
+                <option value="">Select Reason</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="otherReasonsGroup" style="display: none;">
+            <label asp-for="OtherReasons" class="col-form-label">Other Reasons</label>
+            <input asp-for="OtherReasons" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#reasonDropdown").change(function () {
+                var selectedReason = $(this).val();
+
+                if (selectedReason == "15") {
+                    $("#otherReasonsGroup").show();
+                } else {
+                    $("#otherReasonsGroup").hide();
+                }
+            });
+        });
+    </script>
+}

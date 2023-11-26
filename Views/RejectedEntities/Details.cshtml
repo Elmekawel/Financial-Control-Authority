@@ -1,0 +1,65 @@
+﻿@model MICLifePortal.Models.RejectedEntity
+
+<h2 class="my-4">Details</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4>Rejected Entity</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">Beneficiary</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.BeneficiaryTIDContact.Name)</dd>
+
+                <dt class="col-sm-2">Customer</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Customer.Name)</dd>
+
+                <dt class="col-sm-2">Contractor</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Contractor.Name)</dd>
+
+                <dt class="col-sm-2">Refuse Type</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.RefuseType.Name)</dd>
+
+                <dt class="col-sm-2">Rejected Entity Type</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.EntityType.Name)</dd>
+
+                <dt class="col-sm-2">Beneficiary Type</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.BenefeciaryType.Name)</dd>
+
+                <dt class="col-sm-2">Reason</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Reasons.Name)</dd>
+
+                @* <dt class="col-sm-2">Other Reasons</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.OtherReasons)</dd> *@
+                @if (!string.IsNullOrEmpty(Model.OtherReasons))
+                {
+                    <dt class="col-sm-2">Other Reasons</dt>
+                    <dd class="col-sm-10">@Html.DisplayFor(model => model.OtherReasons)</dd>
+                }
+
+                <dt class="col-sm-2">Customer Country</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.CustomerCountry)</dd>
+
+                <dt class="col-sm-2">Document No</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.DocumentNo)</dd>
+
+                <dt class="col-sm-2">Product Code</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.ProductCode)</dd>
+
+                <dt class="col-sm-2">Repayment No</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.RepaymentNo)</dd>
+
+                <dt class="col-sm-2">Premium Value</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.PremiumValue)</dd>
+
+                <dt class="col-sm-2">Refuse Date</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.RefuseDate)</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

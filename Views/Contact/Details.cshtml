@@ -1,0 +1,25 @@
+﻿@model MICLifePortal.Models.Contact
+
+<h2>Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Contact Details</h4>
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-2">Name:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+
+            <dt class="col-sm-2">National ID:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.NationalID)</dd>
+
+            <dt class="col-sm-2">Contact Type:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.ContractorType.SName)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

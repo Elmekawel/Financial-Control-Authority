@@ -1,0 +1,37 @@
+﻿@model MICLifePortal.Models.User
+
+<h2 class="my-4">Registration</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Register" class="my-4">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UserName">Username</label>
+                    <input asp-for="UserName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="RoleID">Role</label>
+                    <select asp-for="RoleID" asp-items="ViewBag.RolesList" class="form-control">
+                        <option value="">Select Role</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
